@@ -1,0 +1,4 @@
+a) The Root node from the above tree is 50.
+b) The leaf Nodes are 9,14,19,67,76.
+c) The ancestor Nodes of a node '19' is 23,17,50.
+d) In the post order traversal we are traversing from LEFT,RIGHT AND ROOT NODE. here the sequence is 9,14,12,19,23,17,67,54,76,72,50.
