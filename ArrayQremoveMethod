@@ -120,7 +120,7 @@ public class ArrayQ
 	    	 item = this.array[this.front];
 	    	//front = this.front;
 	    }
-	    return this.front;
+	    return this.front-2;
    }
    public static void main(String args[]) throws Exception {
    // Creating an object
