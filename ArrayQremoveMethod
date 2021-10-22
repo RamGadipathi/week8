@@ -1,0 +1,157 @@
+package Basics;
+/*
+ * Name: Gadipathi venkataRamaiah
+ * Course: Fundamentals of programming languages
+ * Assignment : Lab #8 
+ * This is the Main public class of ArrayQ which was modified from the driver class in the main method
+ *
+ */
+
+public class ArrayQ
+
+{
+
+   int front, rear, size;
+
+   int capacity;
+
+   int array[];
+// Here ArrayQ is a Constructor method of ArrayQ class
+   public ArrayQ(int capacity) {
+
+       this.capacity = capacity;
+
+       front = this.size = 0;
+
+       rear = capacity - 1;
+
+       array = new int[this.capacity];
+
+   }
+
+   // Queue is full when size becomes equal to
+
+   boolean isFull()
+
+   { return (size == capacity);
+
+   }
+
+   // Queue is empty when size is 0
+
+   boolean isEmpty()
+
+   { 
+	   return (size == 0); 
+	}
+
+   // Method to add an item to the queue.
+
+   int enqueue( int item)
+
+   {
+
+       if (isFull())
+
+           return -1;
+
+       this.rear = (this.rear + 1)%this.capacity;
+
+       this.array[this.rear] = item;
+
+       this.size = this.size + 1;
+
+       return item;
+
+   }
+
+   // Method to remove an item from queue.
+
+   int dequeue()
+
+   {
+
+       if (isEmpty())
+
+           return Integer.MIN_VALUE;
+
+       int item = this.array[this.front];
+
+       this.front = (this.front + 1)%this.capacity;
+
+       this.size = this.size - 1;
+
+       return item;
+
+   }
+
+   // Method to get front of queue
+
+   int front()
+
+   {
+
+       if (isEmpty())
+
+           return Integer.MIN_VALUE;
+
+       return this.array[this.front];
+
+   }
+
+   // Method to get rear of queue
+
+   int rear()
+
+   {
+
+       if (isEmpty())
+
+           return Integer.MIN_VALUE;
+
+       return this.array[this.rear];
+
+   }
+   public int removeMiddle() {    
+	    int half = 0;
+		half=this.size/2;
+		int item=3;
+	    for (int i=0;i<half;i++) {
+	    	 item = this.array[this.front];
+	    	//front = this.front;
+	    }
+	    return this.front;
+   }
+   public static void main(String args[]) throws Exception {
+   // Creating an object
+       ArrayQ qu1 = new ArrayQ(20);
+      
+   // printing statements for queue elements
+       System.out.println("enqueue onto stack: " +"[" + qu1.enqueue(1)+"]");
+
+       System.out.println("enqueue onto stack: " +"[" +qu1.enqueue(7)+"]");
+
+       System.out.println("enqueue onto stack: " +"[" +qu1.enqueue(3)+"]");
+
+       System.out.println("enqueue onto stack: " +"[" +qu1.enqueue(4)+"]");
+
+       System.out.println("enqueue onto stack: " +"[" +qu1.enqueue(9)+"]");
+
+       System.out.println("enqueue onto stack: " +"[" +qu1.enqueue(2)+"]");
+       System.out.println();
+       // Printing the dequeue elements
+       System.out.println("     The Dequeuing the elements from the Queue    ");
+       System.out.println("[" +qu1.dequeue() +"]");
+
+       System.out.println("[" +qu1.dequeue() +"]");
+
+       System.out.println("[" +qu1.dequeue() +"]");
+
+       System.out.println("[" +qu1.dequeue() +"]");
+
+       System.out.println("[" +qu1.dequeue() +"]");
+      // qu1.removeMiddle();
+       System.out.println(qu1.removeMiddle());
+   }
+   
+}
